@@ -9,5 +9,5 @@ import (
 
 func main() {
 	fmt.Println("Hello, Kubernetes！I'm from Jenkins CI！")
-	fmt.Println("Hello everyone")
+	fmt.Println("Hello everyone!!!")
 }
