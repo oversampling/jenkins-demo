@@ -8,5 +8,5 @@ import (
 
 func main() {
 	log.Println("Hello, Kubernetes！I'm from Jenkins CI！")
-	log.Println("Hello everyone!!!")
+	log.Println("Hello everyone!!!!")
 }
