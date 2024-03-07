@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	log.Println("Welcome to use jenkins")
+	log.Println("Welcome to use jenkins for dynamic agent")
 	ticker := time.NewTicker(60 * time.Second)
 	for range ticker.C {
 		log.Println("Hello, Kubernetes！I'm from Jenkins CI！")
