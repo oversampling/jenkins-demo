@@ -14,10 +14,6 @@ spec:
       containers:
       - image: swr.ap-southeast-3.myhuaweicloud.com/test-fq/jenkins-demo:latest
         imagePullPolicy: IfNotPresent
-        command:
-          - sleep
-        args:
-          - '1000'
         name: jenkins-demo
         env:
         - name: branch
