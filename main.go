@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	log.Println("Welcome")
+	log.Println("Welcome for Jenkins POC Demo")
 	ticker := time.NewTicker(60 * time.Second)
 	for range ticker.C {
 		log.Println("Hello, CCE Kubernetes！I'm from Jenkins CI！")
