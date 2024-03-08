@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	log.Println("Welcome AIS 3")
+	log.Println("Welcome AIS")
 	ticker := time.NewTicker(60 * time.Second)
 	for range ticker.C {
 		log.Println("Hello, CCE Kubernetes！I'm from Jenkins CI！")
