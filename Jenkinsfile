@@ -28,7 +28,7 @@ pipeline {
         stage('Build') { 
             steps{
                 echo "3.Build Docker Image Stage" 
-                sh 'docker build -t swr.${SWR_REGION}.myhuaweicloud.com/${ORGANIZATION}/${build_name}:${BUILD_NUMBER} .' 
+                sh "docker build -t swr.${SWR_REGION}.myhuaweicloud.com/${ORGANIZATION}/${build_name}:${BUILD_NUMBER} ." 
             }
         } 
         stage('Push') { 
