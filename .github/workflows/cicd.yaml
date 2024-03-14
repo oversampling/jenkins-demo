@@ -3,20 +3,13 @@ name: CI Workflow
 on: [push]
 
 jobs:
-  build:
-    needs: package
+  package:
     runs-on: arc-runner-set
-    services:
-      docker:
-        image: docker:18.09-dind
-        options: --privileged
+    container:
+      image: ubuntu
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-    - name: Login to Docker
-      run: echo "${{ secrets.SWR_SK }}" | docker login -u ${{ secrets.PROJECT }}@${{ secrets.SWR_AK }} swr.ap-southeast-3.myhuaweicloud.com --password-stdin
-    - name: Build and push Docker image
+    - name: Package step
       run: |
-        docker build -t swr.${{ secrets.PROJECT }}.myhuaweicloud.com/${{ secrets.ORGANIZATION }}/jenkins-demo:${{ github.run_id }} .
-        docker push swr.${{ secrets.PROJECT }}.myhuaweicloud.com/${{ secrets.ORGANIZATION }}/jenkins-demo:${{ github.run_id }}
+        echo "hello"
+        echo "package"
