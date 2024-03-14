@@ -6,7 +6,7 @@ jobs:
   package:
     runs-on: arc-runner-set
     container:
-      image: ubuntu
+      image: docker:latest
     steps:
     - uses: actions/checkout@v2
     - name: Package step
