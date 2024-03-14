@@ -3,17 +3,6 @@ name: CI Workflow
 on: [push]
 
 jobs:
-  package:
-    runs-on: arc-runner-set
-    container:
-      image: docker:latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Package step
-      run: |
-        echo "hello"
-        echo "package"
-
   build:
     needs: package
     runs-on: arc-runner-set
