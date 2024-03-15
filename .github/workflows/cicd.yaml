@@ -55,6 +55,6 @@ jobs:
           project_id: ${{ secrets.PROJECT_ID }}
           cluster_id: ${{ secrets.CLUSTER_ID }}
       - name: get CCE Cluster info
-      - run: |
+        run: |
           kubectl version --client --short
           kubectl cluster-info
