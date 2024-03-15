@@ -5,10 +5,8 @@ on: [push]
 jobs:
   package:
     runs-on: arc-runner-set
-    container:
-      image: docker:latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Package step
       run: |
         echo "hello"
