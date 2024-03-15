@@ -56,5 +56,4 @@ jobs:
           cluster_id: ${{ secrets.CLUSTER_ID }}
       - name: get CCE Cluster info
         run: |
-          kubectl version --client --short
           kubectl cluster-info
