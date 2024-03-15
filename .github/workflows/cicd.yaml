@@ -25,8 +25,12 @@ jobs:
         registry: swr.${{ secrets.PROJECT }}.myhuaweicloud.com
         username: ${{ secrets.PROJECT }}@${{ secrets.SWR_AK }}
         password: ${{ secrets.SWR_SK }}
+    - name: List All File
+      run: "ls -la"
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
         context: .
+        file: ./Dockerfile
+        push: true
         tags: "swr.${{ secrets.PROJECT }}.myhuaweicloud.com/${{ secrets.ORGANIZATION }}/jenkins-demo:${{ github.run_id }}"
