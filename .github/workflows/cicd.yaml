@@ -41,3 +41,20 @@ jobs:
         docker image inspect swr.${{ secrets.PROJECT }}.myhuaweicloud.com/${{ secrets.ORGANIZATION }}/jenkins-demo:${{ github.run_id }}
     - name: Push
       run: "docker push swr.${{ secrets.PROJECT }}.myhuaweicloud.com/${{ secrets.ORGANIZATION }}/jenkins-demo:${{ github.run_id }}"
+
+  deploy:
+    needs: build
+    runs-on: arc-runner-set
+    steps:
+      - name: get CCE Cluster Credentials
+        uses: huaweicloud/cce-credential-action@v1.0.0
+        with:
+          ak: ${{ secrets.SWR_AK }}
+          sk: ${{ secrets.PROJECT_SK }}
+          region: ${{ secrets.PROJECT }}
+          project_id: ${{ secrets.PROJECT_ID }}
+          cluster_id: ${{ secrets.CLUSTER_ID }}
+      - name: get CCE Cluster info
+      - run: |
+          kubectl version --client --short
+          kubectl cluster-info
