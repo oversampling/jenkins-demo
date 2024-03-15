@@ -22,7 +22,7 @@ jobs:
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v3
       with:
-        registry: swr.${secrets.PROJECT}.myhuaweicloud.com
+        registry: swr.${{ secrets.PROJECT }}.myhuaweicloud.com
         username: ${{ secrets.PROJECT }}@${{ secrets.SWR_AK }}
         password: ${{ secrets.SWR_SK }}
     - name: Build and push
