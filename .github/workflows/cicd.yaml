@@ -11,20 +11,22 @@ jobs:
       run: |
         echo "hello"
         echo "package"
-
   build:
     needs: package
     runs-on: arc-runner-set
     steps:
-    - uses: actions/checkout@v4
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3.2.0
-    - name: Login to Docker
-      run: echo "${{ secrets.SWR_SK }}" | docker login -u ${{ secrets.PROJECT }}@${{ secrets.SWR_AK }} swr.ap-southeast-3.myhuaweicloud.com --password-stdin
-    - name: Build
-      run: docker buildx build --push -t swr.${{ secrets.PROJECT }}.myhuaweicloud.com/${{ secrets.ORGANIZATION }}/jenkins-demo:${{ github.run_id }} .
-    # - name: List
-    #   run: docker image list
-    # - name: Push
-    #   run: docker push swr.${{ secrets.PROJECT }}.myhuaweicloud.com/${{ secrets.ORGANIZATION }}/jenkins-demo:${{ github.run_id }}
-
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: swr.${secrets.PROJECT}.myhuaweicloud.com
+        username: ${{ secrets.PROJECT }}@${{ secrets.SWR_AK }}
+        password: ${{ secrets.SWR_SK }}
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        tags: "swr.${{ secrets.PROJECT }}.myhuaweicloud.com/${{ secrets.ORGANIZATION }}/jenkins-demo:${{ github.run_id }}"
