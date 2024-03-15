@@ -39,3 +39,5 @@ jobs:
     - name: Inspect
       run: |
         docker image inspect swr.${{ secrets.PROJECT }}.myhuaweicloud.com/${{ secrets.ORGANIZATION }}/jenkins-demo:${{ github.run_id }}
+    - name: Push
+      run: "docker push swr.${{ secrets.PROJECT }}.myhuaweicloud.com/${{ secrets.ORGANIZATION }}/jenkins-demo:${{ github.run_id }}"
