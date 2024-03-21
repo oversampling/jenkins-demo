@@ -8,9 +8,9 @@ import (
 )
 
 func main() {
-	log.Println("Welcome for Jenkins POC Demo 1000")
+	log.Println("Hi LikeCard, Huawei Cloud Definitely Can Run CICD pipeline like other cloud provider")
 	ticker := time.NewTicker(60 * time.Second)
 	for range ticker.C {
-		log.Println("Hello, CCE Kubernetes Jenkins CI！")
+		log.Println("Likecard")
 	}
 }
