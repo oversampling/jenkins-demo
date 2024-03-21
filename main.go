@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	log.Println("Hi LikeCard, Huawei Cloud Definitely Can Run CICD pipeline like other cloud provider, yeah it work")
+	log.Println("Hi everyone, is Jenkins deployment easy?")
 	ticker := time.NewTicker(60 * time.Second)
 	for range ticker.C {
 		log.Println("Likecard")
