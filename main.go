@@ -11,6 +11,6 @@ func main() {
 	log.Println("Hi everyone, is Jenkins deployment easy?")
 	ticker := time.NewTicker(60 * time.Second)
 	for range ticker.C {
-		log.Println("Likecard")
+		log.Println("Likecard Testing")
 	}
 }
